@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Para Mochi 🌻</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff4b8,
+            #ffd84d,
+            #ffc928
+        );
+
+    overflow: hidden;
+
+}
+
+
+/* CONTENEDOR */
+
+.contenedor {
+
+    width: 94%;
+
+    max-width: 850px;
+
+    height: 94vh;
+
+    max-height: 850px;
+
+    padding:
+        25px 20px;
+
+    text-align: center;
+
+    background:
+        rgba(255,255,255,0.90);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,0,0,0.15);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    overflow: hidden;
+
+}
+
+
+/* TITULO */
+
+h1 {
+
+    color:
+        #d79500;
+
+    font-size:
+        clamp(28px,5vw,50px);
+
+    line-height:
+        1.1;
+
+    margin-bottom:
+        5px;
+
+    text-shadow:
+        2px 2px 0 #fff1a8;
+
+}
+
+
+.mochi {
+
+    color:
+        #c78600;
+
+    font-size:
+        clamp(19px,3vw,26px);
+
+    margin-bottom:
+        12px;
+
+}
+
+
+/* BOTON */
+
+button {
+
+    border:
+        none;
+
+    padding:
+        13px 25px;
+
+    border-radius:
+        40px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f5b400,
+            #e99c00
+        );
+
+    color:
+        white;
+
+    font-size:
+        17px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    cursor:
+        pointer;
+
+    box-shadow:
+        0 6px 15px
+        rgba(210,145,0,0.3);
+
+    transition:
+        0.3s;
+
+}
+
+
+button:hover {
+
+    transform:
+        scale(1.05);
+
+}
+
+
+/* FECHA */
+
+.fecha {
+
+    margin-top:
+        8px;
+
+    color:
+        #8b6b20;
+
+    font-size:
+        15px;
+
+    line-height:
+        1.4;
+
+}
+
+
+/* ESCENA */
+
+.escena {
+
+    display:
+        none;
+
+    position:
+        relative;
+
+    width:
+        100%;
+
+    height:
+        330px;
+
+    margin-top:
+        5px;
+
+    flex-shrink:
+        0;
+
+}
+
+
+/* RAMO */
+
+.ramo {
+
+    position:
+        relative;
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+}
+
+
+/* TIERRA */
+
+.tierra {
+
+    position:
+        absolute;
+
+    bottom:
+        5px;
+
+    left:
+        50%;
+
+    transform:
+        translateX(-50%);
+
+    width:
+        180px;
+
+    height:
+        28px;
+
+    background:
+        #70451f;
+
+    border-radius:
+        50%;
+
+}
+
+
+/* GIRASOL */
+
+.girasol {
+
+    position:
+        absolute;
+
+    width:
+        58px;
+
+    height:
+        58px;
+
+    transform:
+        scale(0);
+
+    transition:
+        transform
+        0.7s
+        cubic-bezier(.17,.67,.35,1.4);
+
+    z-index:
+        5;
+
+}
+
+
+/* TALLO INDIVIDUAL */
+
+.girasol .tallo {
+
+    position:
+        absolute;
+
+    width:
+        6px;
+
+    height:
+        100px;
+
+    background:
+        linear-gradient(
+            to right,
+            #28652a,
+            #58a83e,
+            #28652a
+        );
+
+    left:
+        50%;
+
+    top:
+        45px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius:
+        10px;
+
+    z-index:
+        -1;
+
+}
+
+
+/* HOJA IZQUIERDA */
+
+.girasol .hoja-izquierda {
+
+    position:
+        absolute;
+
+    width:
+        30px;
+
+    height:
+        15px;
+
+    background:
+        #4c9638;
+
+    border-radius:
+        100% 0 100% 0;
+
+    left:
+        -5px;
+
+    top:
+        85px;
+
+    transform:
+        rotate(-25deg);
+
+    z-index:
+        -1;
+
+}
+
+
+/* HOJA DERECHA */
+
+.girasol .hoja-derecha {
+
+    position:
+        absolute;
+
+    width:
+        30px;
+
+    height:
+        15px;
+
+    background:
+        #4c9638;
+
+    border-radius:
+        0 100% 0 100%;
+
+    right:
+        -5px;
+
+    top:
+        100px;
+
+    transform:
+        rotate(25deg);
+
+    z-index:
+        -1;
+
+}
+
+
+/* PETALOS */
+
+.petalo {
+
+    position:
+        absolute;
+
+    width:
+        17px;
+
+    height:
+        30px;
+
+    background:
+        #ffc928;
+
+    border-radius:
+        50%;
+
+    left:
+        50%;
+
+    top:
+        50%;
+
+    transform-origin:
+        50% 100%;
+
+    margin-left:
+        -8.5px;
+
+    margin-top:
+        -27px;
+
+}
+
+
+.p1 { transform: rotate(0deg); }
+.p2 { transform: rotate(45deg); }
+.p3 { transform: rotate(90deg); }
+.p4 { transform: rotate(135deg); }
+.p5 { transform: rotate(180deg); }
+.p6 { transform: rotate(225deg); }
+.p7 { transform: rotate(270deg); }
+.p8 { transform: rotate(315deg); }
+
+
+/* CENTRO */
+
+.centro {
+
+    position:
+        absolute;
+
+    width:
+        27px;
+
+    height:
+        27px;
+
+    left:
+        50%;
+
+    top:
+        50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    border-radius:
+        50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #5a2d0b 10%,
+            #8b4a13 50%,
+            #522809 100%
+        );
+
+}
+
+
+/* POSICIONES */
+
+.g1  { left: 46%; bottom: 185px; }
+.g2  { left: 38%; bottom: 175px; }
+.g3  { left: 54%; bottom: 175px; }
+
+.g4  { left: 30%; bottom: 160px; }
+.g5  { left: 62%; bottom: 160px; }
+
+.g6  { left: 35%; bottom: 145px; }
+.g7  { left: 45%; bottom: 150px; }
+.g8  { left: 55%; bottom: 145px; }
+.g9  { left: 65%; bottom: 145px; }
+
+.g10 { left: 25%; bottom: 125px; }
+.g11 { left: 33%; bottom: 120px; }
+.g12 { left: 41%; bottom: 115px; }
+.g13 { left: 50%; bottom: 115px; }
+.g14 { left: 59%; bottom: 120px; }
+.g15 { left: 67%; bottom: 125px; }
+
+.g16 { left: 29%; bottom: 95px; }
+.g17 { left: 40%; bottom: 90px; }
+.g18 { left: 50%; bottom: 88px; }
+.g19 { left: 60%; bottom: 90px; }
+.g20 { left: 71%; bottom: 95px; }
+
+
+/* DIFERENTES TAMAÑOS */
+
+.g4,
+.g5,
+.g6,
+.g7,
+.g8,
+.g9 {
+
+    zoom:
+        0.9;
+
+}
+
+.g10,
+.g11,
+.g12,
+.g13,
+.g14,
+.g15 {
+
+    zoom:
+        0.8;
+
+}
+
+.g16,
+.g17,
+.g18,
+.g19,
+.g20 {
+
+    zoom:
+        0.7;
+
+}
+
+
+/* MENSAJE */
+
+.mensaje {
+
+    display:
+        none;
+
+    width:
+        90%;
+
+    max-width:
+        650px;
+
+    color:
+        #634d17;
+
+    font-size:
+        clamp(15px,2vw,19px);
+
+    line-height:
+        1.5;
+
+    margin-top:
+        0;
+
+    animation:
+        aparecer
+        1.5s ease;
+
+}
+
+
+/* TEXTO PRINCIPAL */
+
+.mensaje strong {
+
+    color:
+        #c48600;
+
+    font-size:
+        clamp(20px,3vw,27px);
+
+}
+
+
+/* ANIMACION */
+
+@keyframes aparecer {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateY(15px);
+
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* TABLET */
+
+@media (max-width: 900px) {
+
+    .contenedor {
+
+        height:
+            96vh;
+
+    }
+
+}
+
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+
+    .contenedor {
+
+        width:
+            96%;
+
+        height:
+            96vh;
+
+        padding:
+            20px 12px;
+
+    }
+
+
+    .escena {
+
+        height:
+            300px;
+
+    }
+
+
+    .girasol {
+
+        width:
+            48px;
+
+        height:
+            48px;
+
+    }
+
+
+    .girasol .tallo {
+
+        height:
+            85px;
+
+        top:
+            38px;
+
+        width:
+            5px;
+
+    }
+
+
+    .girasol .hoja-izquierda,
+    .girasol .hoja-derecha {
+
+        width:
+            25px;
+
+        height:
+            12px;
+
+    }
+
+
+    .petalo {
+
+        width:
+            15px;
+
+        height:
+            26px;
+
+        margin-left:
+            -7.5px;
+
+        margin-top:
+            -23px;
+
+    }
+
+
+    .centro {
+
+        width:
+            23px;
+
+        height:
+            23px;
+
+    }
+
+
+    .tierra {
+
+        width:
+            150px;
+
+        height:
+            23px;
+
+    }
+
+
+    .mensaje {
+
+        width:
+            95%;
+
+    }
+
+}
+
+
+/* PANTALLAS BAJAS */
+
+@media (max-height: 750px) {
+
+    .contenedor {
+
+        padding-top:
+            15px;
+
+        padding-bottom:
+            15px;
+
+    }
+
+
+    .escena {
+
+        height:
+            270px;
+
+    }
+
+
+    .girasol .tallo {
+
+        height:
+            80px;
+
+    }
+
+
+    .mensaje {
+
+        font-size:
+            14px;
+
+        line-height:
+            1.35;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="contenedor">
+
+
+    <h1>
+        🌻 Feliz día de las flores amarillas 🌻
+    </h1>
+
+
+    <div class="mochi">
+        Para mi Mochi 💛
+    </div>
+
+
+    <button id="regar">
+        🌱 Regar girasol
+    </button>
+
+
+    <div class="fecha">
+
+        <strong>
+            20/09/2026
+        </strong>
+
+        <br>
+
+        Día especial para Mochi 💛
+
+    </div>
+
+
+    <div class="escena" id="escena">
+
+
+        <div class="ramo">
+
+
+            <!-- GIRASOL 1 -->
+
+            <div class="girasol g1">
+
+                <div class="tallo"></div>
+
+                <div class="hoja-izquierda"></div>
+                <div class="hoja-derecha"></div>
+
+                <div class="petalo p1"></div>
+                <div class="petalo p2"></div>
+                <div class="petalo p3"></div>
+                <div class="petalo p4"></div>
+                <div class="petalo p5"></div>
+                <div class="petalo p6"></div>
+                <div class="petalo p7"></div>
+                <div class="petalo p8"></div>
+
+                <div class="centro"></div>
+
+            </div>
+
+
+            <!-- GIRASOL 2 -->
+
+            <div class="girasol g2">
+
+                <div class="tallo"></div>
+                <div class="hoja-izquierda"></div>
+                <div class="hoja-derecha"></div>
+
+                <div class="petalo p1"></div>
+                <div class="petalo p2"></div>
+                <div class="petalo p3"></div>
+                <div class="petalo p4"></div>
+                <div class="petalo p5"></div>
+                <div class="petalo p6"></div>
+                <div class="petalo p7"></div>
+                <div class="petalo p8"></div>
+
+                <div class="centro"></div>
+
+            </div>
+
+
+            <!-- GIRASOL 3 -->
+
+            <div class="girasol g3">
+
+                <div class="tallo"></div>
+                <div class="hoja-izquierda"></div>
+                <div class="hoja-derecha"></div>
+
+                <div class="petalo p1"></div>
+                <div class="petalo p2"></div>
+                <div class="petalo p3"></div>
+                <div class="petalo p4"></div>
+                <div class="petalo p5"></div>
+                <div class="petalo p6"></div>
+                <div class="petalo p7"></div>
+                <div class="petalo p8"></div>
+
+                <div class="centro"></div>
+
+            </div>
+
+
+            <script>
+
+                for (
+                    let i = 4;
+                    i <= 20;
+                    i++
+                ) {
+
+                    document.write(`
+
+                    <div class="girasol g${i}">
+
+                        <div class="tallo"></div>
+
+                        <div class="hoja-izquierda"></div>
+
+                        <div class="hoja-derecha"></div>
+
+                        <div class="petalo p1"></div>
+                        <div class="petalo p2"></div>
+                        <div class="petalo p3"></div>
+                        <div class="petalo p4"></div>
+                        <div class="petalo p5"></div>
+                        <div class="petalo p6"></div>
+                        <div class="petalo p7"></div>
+                        <div class="petalo p8"></div>
+
+                        <div class="centro"></div>
+
+                    </div>
+
+                    `);
+
+                }
+
+            </script>
+
+
+        </div>
+
+
+        <div class="tierra"></div>
+
+
+    </div>
+
+
+    <div class="mensaje" id="mensaje">
+
+        <strong>
+            Te amo mucho, Mochi 💛
+        </strong>
+
+        <br><br>
+
+        Feliz día de las flores amarillas. 🌻
+
+        <br><br>
+
+        Estas flores son especialmente para ti.
+        Quizás no te las pueda entregar de manera física,
+        pero tenía que buscar la manera de que llegara a ti
+        este pequeño regalo. 💛
+
+    </div>
+
+
+</div>
+
+
+<script>
+
+
+const boton =
+    document.getElementById("regar");
+
+
+const escena =
+    document.getElementById("escena");
+
+
+const girasoles =
+    document.querySelectorAll(".girasol");
+
+
+const mensaje =
+    document.getElementById("mensaje");
+
+
+boton.addEventListener(
+    "click",
+    function() {
+
+
+        boton.style.display =
+            "none";
+
+
+        escena.style.display =
+            "block";
+
+
+        girasoles.forEach(
+            function(girasol, indice) {
+
+
+                setTimeout(
+                    function() {
+
+                        girasol.style.transform =
+                            "scale(1)";
+
+                    },
+
+                    100 +
+                    (indice * 100)
+
+                );
+
+            }
+        );
+
+
+        setTimeout(
+            function() {
+
+                mensaje.style.display =
+                    "block";
+
+            },
+
+            3000
+
+        );
+
+
+    }
+
+);
+
+</script>
+
+
+</body>
+
+</html>
+```
